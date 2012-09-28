@@ -1,5 +1,5 @@
-====gtalk bot google appengine project====
+**gtalk bot google appengine project**
 
-@todo
+_@todo_
 
 
