@@ -31,11 +31,7 @@ def main():
       ('/', IndexController),
       ], debug=True)
   wsgiref.handlers.CGIHandler().run(app)
-  params = {
-        'channel': 'rss',
-        'message': 'test',
-  }
-  taskqueue.Task(url='/task/broadcast', params=params).add('chats')
+  
   
 
 if __name__ == '__main__':

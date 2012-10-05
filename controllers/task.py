@@ -96,17 +96,27 @@ class TaskController(webapp.RequestHandler):
     """Trivial GET handler so some tasks can be triggered from a browser."""
     if op == 'update-channel-stats':
       self.UpdateChannelStats()
+    elif op == 'dummy':
+      self.Dummy()
 
+  def Dummy():
+    params = {
+          'channel': 'rss',
+          'message': 'Hi!',
+    }
+    taskqueue.Task(url='/task/broadcast', params=params).add('chats')
+    print 'hi!'
+    exit()
+    
   def post(self, op):
     if op == 'broadcast':
       self.Broadcast()
     elif op == 'update-channel-stats':
       self.UpdateChannelStats()
 
-
 def main():
   app = webapp.WSGIApplication([
-      ('/task/(broadcast|update-channel-stats)', TaskController),
+      ('/task/(dummy|broadcast|update-channel-stats)', TaskController),
   ], debug=True)
   wsgiref.handlers.CGIHandler().run(app)
 
