@@ -1,0 +1,4 @@
+cron:
+- description: check rss
+  url: /task/dummy
+  schedule: every 2 minutes
