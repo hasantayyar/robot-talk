@@ -99,15 +99,14 @@ class TaskController(webapp.RequestHandler):
     elif op == 'dummy':
       self.Dummy()
 
-  def Dummy():
+  def Dummy(self):
     params = {
           'channel': 'rss',
           'message': 'Hi!',
     }
     taskqueue.Task(url='/task/broadcast', params=params).add('chats')
     print 'hi!'
-    exit()
-    
+
   def post(self, op):
     if op == 'broadcast':
       self.Broadcast()
