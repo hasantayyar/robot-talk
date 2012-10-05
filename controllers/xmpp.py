@@ -81,6 +81,7 @@ class XmppController(xmpp_handlers.CommandHandler):
         '* Supported commands:',
         '*   /help',
         '*   /join #<channel>',
+        '*   /join #rss : get notified by top IT news',
         '*   /leave',
         '*   /list',
         '*   /names [#<channel>]',
