@@ -93,9 +93,9 @@ class XmppController(xmpp_handlers.CommandHandler):
     msg.reply('\n'.join(lines))
 
   def dummy(self):
-      params = {
-          'channel': 'rss',
-          'message': 'test',
+    params = {
+      'channel': 'rss',
+      'message': 'test',
     }
     taskqueue.Task(url='/task/broadcast', params=params).add('chats')
 

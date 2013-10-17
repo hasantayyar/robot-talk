@@ -107,6 +107,14 @@ class TaskController(webapp.RequestHandler):
     taskqueue.Task(url='/task/broadcast', params=params).add('chats')
     print 'hi!'
 
+  def Rss(self):
+    message = 'rss summary'
+    params = {
+          'channel': 'rss',
+          'message': message,
+    }
+    taskqueue.Task(url='/task/broadcast', params=params).add('chats')
+
   def post(self, op):
     if op == 'broadcast':
       self.Broadcast()
@@ -115,7 +123,7 @@ class TaskController(webapp.RequestHandler):
 
 def main():
   app = webapp.WSGIApplication([
-      ('/task/(dummy|broadcast|update-channel-stats)', TaskController),
+      ('/task/(rss|dummy|broadcast|update-channel-stats)', TaskController),
   ], debug=True)
   wsgiref.handlers.CGIHandler().run(app)
 

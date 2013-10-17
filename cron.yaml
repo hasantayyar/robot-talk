@@ -1,4 +1,7 @@
 cron:
-- description: check rss
+- description: say hi
   url: /task/dummy
-  schedule: every 2 minutes
+  schedule: every 48 hours
+#- description: check rss
+#  url: /task/rss
+#  schedule: every 2 hour
